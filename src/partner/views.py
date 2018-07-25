@@ -1,4 +1,8 @@
-from django.contrib.auth import authenticate, login as auth_login
+from django.contrib.auth import (
+    authenticate,
+    login as auth_login,
+    logout as auth_logout,
+)
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 
@@ -36,3 +40,7 @@ def signup(request):
         # print(username, email, password)
     ctx = {}
     return render(request, "signup.html", ctx)
+
+def logout(request):
+    auth_logout(request)
+    return redirect("/partner/")
