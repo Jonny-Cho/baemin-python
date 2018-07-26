@@ -6,26 +6,36 @@
     {% if user.is_authenticated %}
         {% if user.partner %}
             환영합니다
+            <div>{{ user.partner.name }}</div>
+            <div>{{ user.partner.contact }}</div>
+            <div>{{ user.partner.address }}</div>
+            <div>{{ user.partner.description }}</div>  
         {% else %}
             추가정보를 입력하세요
-            <form action="" method="post">
-                {% csrf_token%}
-                {{ form.as_p }}
-                <!-- <div class="form-group">
-                    이름<input type="text" name="name" class="form-control">
+            <div class="row">
+                <div class="col-sm-6 col-sm-offset-3">
+                    <form action="" method="post">
+                        {% csrf_token%}
+                        {{ form.as_p }}
+                        <!-- <div class="form-group">
+                            이름<input type="text" name="name" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            연락처<input type="text" name="contact" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            주소<input type="text" name="address" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            업체설명<input type="text" name="description" class="form-control">
+                        </div> -->
+                        
+                        <button class="btn btn-default">저장하기</button>
+                    </form>
                 </div>
-                <div class="form-group">
-                    연락처<input type="text" name="contact" class="form-control">
-                </div>
-                <div class="form-group">
-                    주소<input type="text" name="address" class="form-control">
-                </div>
-                <div class="form-group">
-                    업체설명<input type="text" name="description" class="form-control">
-                </div> -->
-                
-                <button class="btn btn-default">저장하기</button>
-            </form>
+
+            </div>
+            
         {% endif %}
     {% else %}
     <div>로그인 해주세요.</div>

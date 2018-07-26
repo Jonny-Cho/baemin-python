@@ -12,7 +12,7 @@ def index(request):
     ctx = {}
     if request.method == "GET":
         partner_form = PartnerForm()
-        ctx.update = ({"form" : partner_form})
+        ctx.update({"form" : partner_form})
     elif request.method == "POST":
         partner_form = PartnerForm(request.POST)
         if partner_form.is_valid():
